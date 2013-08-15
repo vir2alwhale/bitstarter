@@ -3,8 +3,9 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  var fs = new Buffer;
-  response.send(fs.readFileSync('index.html').toString());
+  var fs = require('fs');
+  var strbuf = fs.readFileSync('index.html').toString();
+  response.send(strbuf);
   response.send('Hello World333!');
 });
 
